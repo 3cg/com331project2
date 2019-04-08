@@ -1,0 +1,29 @@
+= form_for @complaint do |f|
+  - if @complaint.errors.any?
+    #error_explanation
+      %h3= "#{pluralize(@complaint.errors.count, "error")} prohibited this complaint from being saved:"
+      %ul
+        - @complaint.errors.full_messages.each do |message|
+          %li#error= message
+
+  %ol.inputs
+    %li
+      = f.label :date, "Date"
+      = f.date_field :date
+    %li
+      = f.label :location, "Location"
+      = f.select :location, [' ', 'Stuart', 'Keating', 'Kaplan', 'Pritzker', 'Engineering',
+      'Alumni', 'Hermann', 'MSV', 'SSV', 'MTCC', 'Perlstein', 'Wishnick', 'Siegel', 'Galvin', 'Crown', 'IIT-Tower' ]
+
+    %li
+      = f.label :department, "Department for complaint"
+      = f.select :department, [' ', 'Maintenance', 'Technology']
+    %li
+      = f.label :description, "Description"
+      = f.text_area :description
+    %li
+      = f.label :ID, "ID number"
+      = f.number_field :person_number
+
+    %li.actions
+      = f.submit 'Save'

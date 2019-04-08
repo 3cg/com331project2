@@ -1,0 +1,13 @@
+%p#notice= notice
+
+%article
+  %h3= "Details of Complaint"
+  %p.byline= "Report Number: #{@complaint.reporter_id}"
+  %p.byline= "Date: #{@complaint.date}"
+  %p.byline= "Location: #{@complaint.location}"
+  %p.byline= "Department: #{@complaint.department}"
+  %p.byline= "Description: #{@complaint.description}"
+
+%footer
+  %ul.controls
+    %li#back= link_to 'Back', complaints_path

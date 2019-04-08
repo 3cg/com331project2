@@ -1,0 +1,15 @@
+
+%header
+  %p= link_to 'Create New Complaint', new_complaint_path
+
+%h2 Newest Complaints
+%ul.complaints
+  - @complaints.each do |complaint|
+    %li
+      %article
+        %h3= complaint.description
+        %ul.info
+          %ul= "Date: #{complaint.date}"
+
+        %ul.controls#index
+          %ul= link_to 'Details', complaint

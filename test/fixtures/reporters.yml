@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+Wenwen:
+  first_name: Wenwen
+  last_name: Xie
+  a_number: 12345678
+  school_email: wenwenxie@hawk.iit.edu
+
+Jiayu:
+  first_name: Jiayu
+  last_name: Huang
+  a_number: 01234567
+  school_email: jiayuhuang@hawk.iit.edu
+
+Jessica:
+  first_name: Jessica
+  last_name: DeJesus
+  a_number: 01234568
+  school_email: jessicadejesus@hawk.iit.edu
