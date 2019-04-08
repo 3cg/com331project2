@@ -1,0 +1,211 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ /Users/jiayuhuang/.rvm/rubies/ruby-2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/jiayuhuang/.rvm/rubies/ruby-2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ /Users/jiayuhuang/.rvm/rubies/ruby-2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jiayuhuang/.rvm/rubies/ruby-2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreateReporters (20190216044403)
+  [1m[35m (0.7ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/jiayuhuang/.rvm/rubies/ruby-2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "reporters" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "a_number" integer, "school_email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190216044403_create_reporters.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190216044403"]]
+  ↳ /Users/jiayuhuang/.rvm/rubies/ruby-2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/jiayuhuang/.rvm/rubies/ruby-2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreateComplaints (20190216045038)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/jiayuhuang/.rvm/rubies/ruby-2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "complaints" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "date" datetime, "location" varchar, "type" varchar, "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190216045038_create_complaints.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190216045038"]]
+  ↳ /Users/jiayuhuang/.rvm/rubies/ruby-2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/jiayuhuang/.rvm/rubies/ruby-2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to CreateComplaintsReportersJoinTable (20190216050100)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/jiayuhuang/.rvm/rubies/ruby-2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "complaints_reporters" ("complaint_id" integer NOT NULL, "reporter_id" integer NOT NULL)[0m
+  ↳ db/migrate/20190216050100_create_complaints_reporters_join_table.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_complaints_reporters_on_complaint_id" ON "complaints_reporters" ("complaint_id")[0m
+  ↳ db/migrate/20190216050100_create_complaints_reporters_join_table.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_complaints_reporters_on_reporter_id" ON "complaints_reporters" ("reporter_id")[0m
+  ↳ db/migrate/20190216050100_create_complaints_reporters_join_table.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190216050100"]]
+  ↳ /Users/jiayuhuang/.rvm/rubies/ruby-2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/jiayuhuang/.rvm/rubies/ruby-2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to AddReporterRefToComplaints (20190223235723)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/jiayuhuang/.rvm/rubies/ruby-2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "complaints" ADD "reporter_id" integer[0m
+  ↳ db/migrate/20190223235723_add_reporter_ref_to_complaints.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_complaints_on_reporter_id" ON "complaints" ("reporter_id")[0m
+  ↳ db/migrate/20190223235723_add_reporter_ref_to_complaints.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190223235723"]]
+  ↳ /Users/jiayuhuang/.rvm/rubies/ruby-2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/jiayuhuang/.rvm/rubies/ruby-2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to ChangeColumnName (20190225204440)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/jiayuhuang/.rvm/rubies/ruby-2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acomplaints" ("id" integer NOT NULL PRIMARY KEY, "date" datetime DEFAULT NULL, "location" varchar DEFAULT NULL, "department" varchar DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "reporter_id" integer DEFAULT NULL)[0m
+  ↳ db/migrate/20190225204440_change_column_name.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "tindex_acomplaints_on_reporter_id" ON "acomplaints" ("reporter_id")[0m
+  ↳ db/migrate/20190225204440_change_column_name.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acomplaints" ("id","date","location","department","description","created_at","updated_at","reporter_id")
+                     SELECT "id","date","location","type","description","created_at","updated_at","reporter_id" FROM "complaints"[0m
+  ↳ db/migrate/20190225204440_change_column_name.rb:3
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "complaints"[0m
+  ↳ db/migrate/20190225204440_change_column_name.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "complaints" ("id" integer NOT NULL PRIMARY KEY, "date" datetime DEFAULT NULL, "location" varchar DEFAULT NULL, "department" varchar DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "reporter_id" integer DEFAULT NULL)[0m
+  ↳ db/migrate/20190225204440_change_column_name.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_complaints_on_reporter_id" ON "complaints" ("reporter_id")[0m
+  ↳ db/migrate/20190225204440_change_column_name.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "complaints" ("id","date","location","department","description","created_at","updated_at","reporter_id")
+                     SELECT "id","date","location","department","description","created_at","updated_at","reporter_id" FROM "acomplaints"[0m
+  ↳ db/migrate/20190225204440_change_column_name.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "acomplaints"[0m
+  ↳ db/migrate/20190225204440_change_column_name.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190225204440"]]
+  ↳ /Users/jiayuhuang/.rvm/rubies/ruby-2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/jiayuhuang/.rvm/rubies/ruby-2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to ChangeDatetimeToBeIntergerInComplaint (20190302000032)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/jiayuhuang/.rvm/rubies/ruby-2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acomplaints" ("id" integer NOT NULL PRIMARY KEY, "date" datetime DEFAULT NULL, "location" varchar DEFAULT NULL, "department" varchar DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "reporter_id" integer DEFAULT NULL)[0m
+  ↳ db/migrate/20190302000032_change_datetime_to_be_interger_in_complaint.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_acomplaints_on_reporter_id" ON "acomplaints" ("reporter_id")[0m
+  ↳ db/migrate/20190302000032_change_datetime_to_be_interger_in_complaint.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acomplaints" ("id","date","location","department","description","created_at","updated_at","reporter_id")
+                     SELECT "id","date","location","department","description","created_at","updated_at","reporter_id" FROM "complaints"[0m
+  ↳ db/migrate/20190302000032_change_datetime_to_be_interger_in_complaint.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "complaints"[0m
+  ↳ db/migrate/20190302000032_change_datetime_to_be_interger_in_complaint.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "complaints" ("id" integer NOT NULL PRIMARY KEY, "date" integer DEFAULT NULL, "location" varchar DEFAULT NULL, "department" varchar DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "reporter_id" integer DEFAULT NULL)[0m
+  ↳ db/migrate/20190302000032_change_datetime_to_be_interger_in_complaint.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_complaints_on_reporter_id" ON "complaints" ("reporter_id")[0m
+  ↳ db/migrate/20190302000032_change_datetime_to_be_interger_in_complaint.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "complaints" ("id","date","location","department","description","created_at","updated_at","reporter_id")
+                     SELECT "id","date","location","department","description","created_at","updated_at","reporter_id" FROM "acomplaints"[0m
+  ↳ db/migrate/20190302000032_change_datetime_to_be_interger_in_complaint.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acomplaints"[0m
+  ↳ db/migrate/20190302000032_change_datetime_to_be_interger_in_complaint.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190302000032"]]
+  ↳ /Users/jiayuhuang/.rvm/rubies/ruby-2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/jiayuhuang/.rvm/rubies/ruby-2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Migrating to ChangeIntergerToDateInComplaint (20190303063415)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/jiayuhuang/.rvm/rubies/ruby-2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acomplaints" ("id" integer NOT NULL PRIMARY KEY, "date" integer DEFAULT NULL, "location" varchar DEFAULT NULL, "department" varchar DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "reporter_id" integer DEFAULT NULL)[0m
+  ↳ db/migrate/20190303063415_change_interger_to_date_in_complaint.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "tindex_acomplaints_on_reporter_id" ON "acomplaints" ("reporter_id")[0m
+  ↳ db/migrate/20190303063415_change_interger_to_date_in_complaint.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acomplaints" ("id","date","location","department","description","created_at","updated_at","reporter_id")
+                     SELECT "id","date","location","department","description","created_at","updated_at","reporter_id" FROM "complaints"[0m
+  ↳ db/migrate/20190303063415_change_interger_to_date_in_complaint.rb:3
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE "complaints"[0m
+  ↳ db/migrate/20190303063415_change_interger_to_date_in_complaint.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "complaints" ("id" integer NOT NULL PRIMARY KEY, "date" date DEFAULT NULL, "location" varchar DEFAULT NULL, "department" varchar DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "reporter_id" integer DEFAULT NULL)[0m
+  ↳ db/migrate/20190303063415_change_interger_to_date_in_complaint.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_complaints_on_reporter_id" ON "complaints" ("reporter_id")[0m
+  ↳ db/migrate/20190303063415_change_interger_to_date_in_complaint.rb:3
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "complaints" ("id","date","location","department","description","created_at","updated_at","reporter_id")
+                     SELECT "id","date","location","department","description","created_at","updated_at","reporter_id" FROM "acomplaints"[0m
+  ↳ db/migrate/20190303063415_change_interger_to_date_in_complaint.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "acomplaints"[0m
+  ↳ db/migrate/20190303063415_change_interger_to_date_in_complaint.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190303063415"]]
+  ↳ /Users/jiayuhuang/.rvm/rubies/ruby-2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/jiayuhuang/.rvm/rubies/ruby-2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/jiayuhuang/.rvm/rubies/ruby-2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/jiayuhuang/.rvm/rubies/ruby-2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Create (1.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-04-08 22:52:49.577269"], ["updated_at", "2019-04-08 22:52:49.577269"]]
+  ↳ /Users/jiayuhuang/.rvm/rubies/ruby-2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/jiayuhuang/.rvm/rubies/ruby-2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jiayuhuang/.rvm/rubies/ruby-2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Started GET "/" for ::1 at 2019-04-08 17:53:14 -0500
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jiayuhuang/.rvm/gems/ruby-2.6.2/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ComplaintsController#index as HTML
+  Rendering complaints/index.html.haml within layouts/application
+  [1m[36mComplaint Load (0.3ms)[0m  [1m[34mSELECT "complaints".* FROM "complaints"[0m
+  ↳ app/views/complaints/index.html.haml:7
+  Rendered complaints/index.html.haml within layouts/application (24.7ms)
+Completed 200 OK in 696ms (Views: 680.6ms | ActiveRecord: 3.6ms)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jiayuhuang/.rvm/rubies/ruby-2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mComplaint Load (0.2ms)[0m  [1m[34mSELECT "complaints".* FROM "complaints"[0m
+  ↳ db/seeds.rb:10
+  [1m[36mReporter Load (0.4ms)[0m  [1m[34mSELECT "reporters".* FROM "reporters"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[36mReporter Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "reporters" WHERE "reporters"."a_number" = ? LIMIT ?[0m  [["a_number", 12345678], ["LIMIT", 1]]
+  ↳ db/seeds.rb:15
+  [1m[36mReporter Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reporters" WHERE "reporters"."school_email" = ? LIMIT ?[0m  [["school_email", "wenwenxie@hawk.iit.edu"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:15
+  [1m[36mReporter Create (0.8ms)[0m  [1m[32mINSERT INTO "reporters" ("first_name", "last_name", "a_number", "school_email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Wenwen"], ["last_name", "Xie"], ["a_number", 12345678], ["school_email", "wenwenxie@hawk.iit.edu"], ["created_at", "2019-04-08 22:53:34.148107"], ["updated_at", "2019-04-08 22:53:34.148107"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[36mReporter Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reporters" WHERE "reporters"."a_number" = ? LIMIT ?[0m  [["a_number", 21234567], ["LIMIT", 1]]
+  ↳ db/seeds.rb:22
+  [1m[36mReporter Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reporters" WHERE "reporters"."school_email" = ? LIMIT ?[0m  [["school_email", "jiayuhuang@hawk.iit.edu"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:22
+  [1m[36mReporter Create (0.3ms)[0m  [1m[32mINSERT INTO "reporters" ("first_name", "last_name", "a_number", "school_email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "JiaYu"], ["last_name", "Huang"], ["a_number", 21234567], ["school_email", "jiayuhuang@hawk.iit.edu"], ["created_at", "2019-04-08 22:53:34.152768"], ["updated_at", "2019-04-08 22:53:34.152768"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:29
+  [1m[36mReporter Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reporters" WHERE "reporters"."a_number" = ? LIMIT ?[0m  [["a_number", 21234568], ["LIMIT", 1]]
+  ↳ db/seeds.rb:29
+  [1m[36mReporter Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reporters" WHERE "reporters"."school_email" = ? LIMIT ?[0m  [["school_email", "jessicadejesus@hawk.iit.edu"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:29
+  [1m[36mReporter Create (0.3ms)[0m  [1m[32mINSERT INTO "reporters" ("first_name", "last_name", "a_number", "school_email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Jessica"], ["last_name", "DeJesus"], ["a_number", 21234568], ["school_email", "jessicadejesus@hawk.iit.edu"], ["created_at", "2019-04-08 22:53:34.156467"], ["updated_at", "2019-04-08 22:53:34.156467"]]
+  ↳ db/seeds.rb:29
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:29
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:36
+  [1m[36mComplaint Create (0.4ms)[0m  [1m[32mINSERT INTO "complaints" ("date", "location", "department", "description", "created_at", "updated_at", "reporter_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["date", "2019-01-15"], ["location", "Pritzker"], ["department", "Maintenance"], ["description", "The bathroom on the third floor for the women is broken"], ["created_at", "2019-04-08 22:53:34.167449"], ["updated_at", "2019-04-08 22:53:34.167449"], ["reporter_id", 1]]
+  ↳ db/seeds.rb:36
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:36
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:36
+  [1m[36mComplaint Create (0.4ms)[0m  [1m[32mINSERT INTO "complaints" ("date", "location", "department", "description", "created_at", "updated_at", "reporter_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["date", "2019-01-20"], ["location", "Perlstein"], ["department", "Maintenance"], ["description", "The table in Room 104 is broken"], ["created_at", "2019-04-08 22:53:34.170800"], ["updated_at", "2019-04-08 22:53:34.170800"], ["reporter_id", 2]]
+  ↳ db/seeds.rb:36
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:36
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:36
+  [1m[36mComplaint Create (0.4ms)[0m  [1m[32mINSERT INTO "complaints" ("date", "location", "department", "description", "created_at", "updated_at", "reporter_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["date", "2019-02-14"], ["location", "MSV"], ["department", "Technology"], ["description", "The printer is out of toner"], ["created_at", "2019-04-08 22:53:34.173741"], ["updated_at", "2019-04-08 22:53:34.173741"], ["reporter_id", 3]]
+  ↳ db/seeds.rb:36
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:36
+Started GET "/" for ::1 at 2019-04-08 17:53:42 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jiayuhuang/.rvm/gems/ruby-2.6.2/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ComplaintsController#index as HTML
+  Rendering complaints/index.html.haml within layouts/application
+  [1m[36mComplaint Load (0.2ms)[0m  [1m[34mSELECT "complaints".* FROM "complaints"[0m
+  ↳ app/views/complaints/index.html.haml:7
+  Rendered complaints/index.html.haml within layouts/application (19.7ms)
+Completed 200 OK in 312ms (Views: 299.7ms | ActiveRecord: 0.7ms)
+
+

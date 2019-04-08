@@ -1,0 +1,220 @@
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "complaints"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "complaints" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "date" date, "location" varchar, "department" varchar, "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "reporter_id" integer)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX "index_complaints_on_reporter_id" ON "complaints" ("reporter_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "complaints_reporters"[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "complaints_reporters" ("complaint_id" integer NOT NULL, "reporter_id" integer NOT NULL)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX "index_complaints_reporters_on_complaint_id" ON "complaints_reporters" ("complaint_id")[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX "index_complaints_reporters_on_reporter_id" ON "complaints_reporters" ("reporter_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "reporters"[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "reporters" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "a_number" integer, "school_email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190303063415)[0m
+  [1m[35m (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190225204440),
+(20190216050100),
+(20190302000032),
+(20190216044403),
+(20190216045038),
+(20190223235723);
+
+[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2019-04-08 22:52:32.043004"], ["updated_at", "2019-04-08 22:52:32.043004"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.7ms)[0m  [1m[31mDELETE FROM "complaints"[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "reporters"[0m
+  [1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO "complaints" ("date", "location", "department", "description", "created_at", "updated_at", "id", "reporter_id") VALUES ('2019-01-15', 'Pritzker', 'Maintenance', 'The bathroom on the third floor for the women is broken', '2019-04-08 22:52:32.198309', '2019-04-08 22:52:32.198309', 805814820, 157043852)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "complaints" ("date", "location", "department", "description", "created_at", "updated_at", "id", "reporter_id") VALUES ('2019-01-16', 'Perlstein', 'Maintenance', 'The table in Room 104 is broken', '2019-04-08 22:52:32.198309', '2019-04-08 22:52:32.198309', 908693321, 97053031)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "complaints" ("date", "location", "department", "description", "created_at", "updated_at", "id", "reporter_id") VALUES ('2019-01-17', 'MSV', 'Technology', 'The printer is out of toner', '2019-04-08 22:52:32.198309', '2019-04-08 22:52:32.198309', 223115759, 297101259)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "reporters" ("first_name", "last_name", "a_number", "school_email", "created_at", "updated_at", "id") VALUES ('Wenwen', 'Xie', 12345678, 'wenwenxie@hawk.iit.edu', '2019-04-08 22:52:32.206566', '2019-04-08 22:52:32.206566', 157043852)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "reporters" ("first_name", "last_name", "a_number", "school_email", "created_at", "updated_at", "id") VALUES ('Jiayu', 'Huang', 342391, 'jiayuhuang@hawk.iit.edu', '2019-04-08 22:52:32.206566', '2019-04-08 22:52:32.206566', 97053031)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "reporters" ("first_name", "last_name", "a_number", "school_email", "created_at", "updated_at", "id") VALUES ('Jessica', 'DeJesus', 1234568, 'jessicadejesus@hawk.iit.edu', '2019-04-08 22:52:32.206566', '2019-04-08 22:52:32.206566', 297101259)[0m
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------
+ComplaintsControllerTest: test_should_get_index
+-----------------------------------------------
+  [1m[36mComplaint Load (0.5ms)[0m  [1m[34mSELECT  "complaints".* FROM "complaints" WHERE "complaints"."id" = ? LIMIT ?[0m  [["id", 805814820], ["LIMIT", 1]]
+Started GET "/complaints" for 127.0.0.1 at 2019-04-08 17:52:32 -0500
+Processing by ComplaintsController#index as HTML
+  Rendering complaints/index.html.haml within layouts/application
+  [1m[36mComplaint Load (0.3ms)[0m  [1m[34mSELECT "complaints".* FROM "complaints"[0m
+  Rendered complaints/index.html.haml within layouts/application (17.5ms)
+Completed 200 OK in 489ms (Views: 479.4ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+ComplaintsControllerTest: test_should_show_complaint
+----------------------------------------------------
+  [1m[36mComplaint Load (0.2ms)[0m  [1m[34mSELECT  "complaints".* FROM "complaints" WHERE "complaints"."id" = ? LIMIT ?[0m  [["id", 805814820], ["LIMIT", 1]]
+Started GET "/complaints/805814820" for 127.0.0.1 at 2019-04-08 17:52:33 -0500
+Processing by ComplaintsController#show as HTML
+  Parameters: {"id"=>"805814820"}
+  [1m[36mComplaint Load (0.1ms)[0m  [1m[34mSELECT  "complaints".* FROM "complaints" WHERE "complaints"."id" = ? LIMIT ?[0m  [["id", 805814820], ["LIMIT", 1]]
+  Rendering complaints/show.html.haml within layouts/application
+  Rendered complaints/show.html.haml within layouts/application (5.1ms)
+Completed 200 OK in 10ms (Views: 7.0ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------
+ComplaintsControllerTest: test_should_create_complaint
+------------------------------------------------------
+  [1m[36mComplaint Load (0.2ms)[0m  [1m[34mSELECT  "complaints".* FROM "complaints" WHERE "complaints"."id" = ? LIMIT ?[0m  [["id", 805814820], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "complaints"[0m
+  [1m[36mReporter Load (0.2ms)[0m  [1m[34mSELECT  "reporters".* FROM "reporters" WHERE "reporters"."id" = ? LIMIT ?[0m  [["id", 157043852], ["LIMIT", 1]]
+Started POST "/complaints" for 127.0.0.1 at 2019-04-08 17:52:33 -0500
+Processing by ComplaintsController#create as HTML
+  Parameters: {"complaint"=>{"date"=>"2019-01-15", "location"=>"Pritzker", "department"=>"Maintenance", "description"=>"The bathroom on the third floor for the women is broken", "person_number"=>"12345678"}}
+  [1m[36mReporter Load (0.2ms)[0m  [1m[34mSELECT  "reporters".* FROM "reporters" WHERE "reporters"."a_number" = ? LIMIT ?[0m  [["a_number", 12345678], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mComplaint Create (0.6ms)[0m  [1m[32mINSERT INTO "complaints" ("date", "location", "department", "description", "created_at", "updated_at", "reporter_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["date", "2019-01-15"], ["location", "Pritzker"], ["department", "Maintenance"], ["description", "The bathroom on the third floor for the women is broken"], ["created_at", "2019-04-08 22:52:33.109142"], ["updated_at", "2019-04-08 22:52:33.109142"], ["reporter_id", 157043852]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/complaints/908693322
+Completed 302 Found in 9ms (ActiveRecord: 1.0ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "complaints"[0m
+  [1m[36mComplaint Load (0.2ms)[0m  [1m[34mSELECT  "complaints".* FROM "complaints" ORDER BY "complaints"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------
+ComplaintsControllerTest: test_should_get_new
+---------------------------------------------
+  [1m[36mComplaint Load (0.2ms)[0m  [1m[34mSELECT  "complaints".* FROM "complaints" WHERE "complaints"."id" = ? LIMIT ?[0m  [["id", 805814820], ["LIMIT", 1]]
+Started GET "/complaints/new" for 127.0.0.1 at 2019-04-08 17:52:33 -0500
+Processing by ComplaintsController#new as HTML
+  Rendering complaints/new.html.haml within layouts/application
+  Rendered complaints/_form.html.haml (16.9ms)
+  Rendered complaints/new.html.haml within layouts/application (21.4ms)
+Completed 200 OK in 25ms (Views: 23.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------
+ComplaintTest: test_complaint_fields_must_not_be_empty
+------------------------------------------------------
+  [1m[36mComplaint Load (0.1ms)[0m  [1m[34mSELECT  "complaints".* FROM "complaints" WHERE "complaints"."id" = ? LIMIT ?[0m  [["id", 805814820], ["LIMIT", 1]]
+  [1m[36mReporter Load (0.1ms)[0m  [1m[34mSELECT  "reporters".* FROM "reporters" WHERE "reporters"."id" = ? LIMIT ?[0m  [["id", 157043852], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------------------
+ReporterTest: test_a_number_must_be_eight_digits,_now_or_in_the_future
+----------------------------------------------------------------------
+  [1m[36mReporter Load (0.1ms)[0m  [1m[34mSELECT  "reporters".* FROM "reporters" WHERE "reporters"."id" = ? LIMIT ?[0m  [["id", 157043852], ["LIMIT", 1]]
+  [1m[36mReporter Load (0.1ms)[0m  [1m[34mSELECT  "reporters".* FROM "reporters" WHERE "reporters"."id" = ? LIMIT ?[0m  [["id", 97053031], ["LIMIT", 1]]
+  [1m[36mReporter Load (0.1ms)[0m  [1m[34mSELECT  "reporters".* FROM "reporters" WHERE "reporters"."id" = ? LIMIT ?[0m  [["id", 297101259], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------
+ReporterTest: test_reports_fields_are_not_empty
+-----------------------------------------------
+  [1m[36mReporter Load (0.1ms)[0m  [1m[34mSELECT  "reporters".* FROM "reporters" WHERE "reporters"."id" = ? LIMIT ?[0m  [["id", 157043852], ["LIMIT", 1]]
+  [1m[36mReporter Load (0.1ms)[0m  [1m[34mSELECT  "reporters".* FROM "reporters" WHERE "reporters"."id" = ? LIMIT ?[0m  [["id", 97053031], ["LIMIT", 1]]
+  [1m[36mReporter Load (0.1ms)[0m  [1m[34mSELECT  "reporters".* FROM "reporters" WHERE "reporters"."id" = ? LIMIT ?[0m  [["id", 297101259], ["LIMIT", 1]]
+  [1m[36mReporter Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "reporters" WHERE "reporters"."a_number" = ? AND "reporters"."id" != ? LIMIT ?[0m  [["a_number", 12345678], ["id", 157043852], ["LIMIT", 1]]
+  [1m[36mReporter Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reporters" WHERE "reporters"."school_email" = ? AND "reporters"."id" != ? LIMIT ?[0m  [["school_email", "wenwenxie@hawk.iit.edu"], ["id", 157043852], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (1.6ms)[0m  [1m[31mDELETE FROM "complaints"[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "reporters"[0m
+  [1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO "complaints" ("date", "location", "department", "description", "created_at", "updated_at", "id", "reporter_id") VALUES ('2019-01-15', 'Pritzker', 'Maintenance', 'The bathroom on the third floor for the women is broken', '2019-04-08 22:52:53.150141', '2019-04-08 22:52:53.150141', 805814820, 157043852)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "complaints" ("date", "location", "department", "description", "created_at", "updated_at", "id", "reporter_id") VALUES ('2019-01-16', 'Perlstein', 'Maintenance', 'The table in Room 104 is broken', '2019-04-08 22:52:53.150141', '2019-04-08 22:52:53.150141', 908693321, 97053031)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "complaints" ("date", "location", "department", "description", "created_at", "updated_at", "id", "reporter_id") VALUES ('2019-01-17', 'MSV', 'Technology', 'The printer is out of toner', '2019-04-08 22:52:53.150141', '2019-04-08 22:52:53.150141', 223115759, 297101259)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "reporters" ("first_name", "last_name", "a_number", "school_email", "created_at", "updated_at", "id") VALUES ('Wenwen', 'Xie', 12345678, 'wenwenxie@hawk.iit.edu', '2019-04-08 22:52:53.153884', '2019-04-08 22:52:53.153884', 157043852)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "reporters" ("first_name", "last_name", "a_number", "school_email", "created_at", "updated_at", "id") VALUES ('Jiayu', 'Huang', 342391, 'jiayuhuang@hawk.iit.edu', '2019-04-08 22:52:53.153884', '2019-04-08 22:52:53.153884', 97053031)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "reporters" ("first_name", "last_name", "a_number", "school_email", "created_at", "updated_at", "id") VALUES ('Jessica', 'DeJesus', 1234568, 'jessicadejesus@hawk.iit.edu', '2019-04-08 22:52:53.153884', '2019-04-08 22:52:53.153884', 297101259)[0m
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------
+ComplaintsControllerTest: test_should_get_new
+---------------------------------------------
+  [1m[36mComplaint Load (0.2ms)[0m  [1m[34mSELECT  "complaints".* FROM "complaints" WHERE "complaints"."id" = ? LIMIT ?[0m  [["id", 805814820], ["LIMIT", 1]]
+Started GET "/complaints/new" for 127.0.0.1 at 2019-04-08 17:52:53 -0500
+Processing by ComplaintsController#new as HTML
+  Rendering complaints/new.html.haml within layouts/application
+  Rendered complaints/_form.html.haml (7.3ms)
+  Rendered complaints/new.html.haml within layouts/application (12.3ms)
+Completed 200 OK in 146ms (Views: 141.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------
+ComplaintsControllerTest: test_should_get_index
+-----------------------------------------------
+  [1m[36mComplaint Load (0.3ms)[0m  [1m[34mSELECT  "complaints".* FROM "complaints" WHERE "complaints"."id" = ? LIMIT ?[0m  [["id", 805814820], ["LIMIT", 1]]
+Started GET "/complaints" for 127.0.0.1 at 2019-04-08 17:52:53 -0500
+Processing by ComplaintsController#index as HTML
+  Rendering complaints/index.html.haml within layouts/application
+  [1m[36mComplaint Load (0.1ms)[0m  [1m[34mSELECT "complaints".* FROM "complaints"[0m
+  Rendered complaints/index.html.haml within layouts/application (7.0ms)
+Completed 200 OK in 10ms (Views: 8.5ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+ComplaintsControllerTest: test_should_show_complaint
+----------------------------------------------------
+  [1m[36mComplaint Load (0.1ms)[0m  [1m[34mSELECT  "complaints".* FROM "complaints" WHERE "complaints"."id" = ? LIMIT ?[0m  [["id", 805814820], ["LIMIT", 1]]
+Started GET "/complaints/805814820" for 127.0.0.1 at 2019-04-08 17:52:53 -0500
+Processing by ComplaintsController#show as HTML
+  Parameters: {"id"=>"805814820"}
+  [1m[36mComplaint Load (0.1ms)[0m  [1m[34mSELECT  "complaints".* FROM "complaints" WHERE "complaints"."id" = ? LIMIT ?[0m  [["id", 805814820], ["LIMIT", 1]]
+  Rendering complaints/show.html.haml within layouts/application
+  Rendered complaints/show.html.haml within layouts/application (2.9ms)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------
+ComplaintsControllerTest: test_should_create_complaint
+------------------------------------------------------
+  [1m[36mComplaint Load (0.1ms)[0m  [1m[34mSELECT  "complaints".* FROM "complaints" WHERE "complaints"."id" = ? LIMIT ?[0m  [["id", 805814820], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "complaints"[0m
+  [1m[36mReporter Load (0.1ms)[0m  [1m[34mSELECT  "reporters".* FROM "reporters" WHERE "reporters"."id" = ? LIMIT ?[0m  [["id", 157043852], ["LIMIT", 1]]
+Started POST "/complaints" for 127.0.0.1 at 2019-04-08 17:52:53 -0500
+Processing by ComplaintsController#create as HTML
+  Parameters: {"complaint"=>{"date"=>"2019-01-15", "location"=>"Pritzker", "department"=>"Maintenance", "description"=>"The bathroom on the third floor for the women is broken", "person_number"=>"12345678"}}
+  [1m[36mReporter Load (0.1ms)[0m  [1m[34mSELECT  "reporters".* FROM "reporters" WHERE "reporters"."a_number" = ? LIMIT ?[0m  [["a_number", 12345678], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mComplaint Create (0.4ms)[0m  [1m[32mINSERT INTO "complaints" ("date", "location", "department", "description", "created_at", "updated_at", "reporter_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["date", "2019-01-15"], ["location", "Pritzker"], ["department", "Maintenance"], ["description", "The bathroom on the third floor for the women is broken"], ["created_at", "2019-04-08 22:52:53.496977"], ["updated_at", "2019-04-08 22:52:53.496977"], ["reporter_id", 157043852]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/complaints/908693322
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "complaints"[0m
+  [1m[36mComplaint Load (0.2ms)[0m  [1m[34mSELECT  "complaints".* FROM "complaints" ORDER BY "complaints"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (1.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------
+ComplaintTest: test_complaint_fields_must_not_be_empty
+------------------------------------------------------
+  [1m[36mComplaint Load (0.1ms)[0m  [1m[34mSELECT  "complaints".* FROM "complaints" WHERE "complaints"."id" = ? LIMIT ?[0m  [["id", 805814820], ["LIMIT", 1]]
+  [1m[36mReporter Load (0.2ms)[0m  [1m[34mSELECT  "reporters".* FROM "reporters" WHERE "reporters"."id" = ? LIMIT ?[0m  [["id", 157043852], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------------------
+ReporterTest: test_a_number_must_be_eight_digits,_now_or_in_the_future
+----------------------------------------------------------------------
+  [1m[36mReporter Load (0.1ms)[0m  [1m[34mSELECT  "reporters".* FROM "reporters" WHERE "reporters"."id" = ? LIMIT ?[0m  [["id", 157043852], ["LIMIT", 1]]
+  [1m[36mReporter Load (0.1ms)[0m  [1m[34mSELECT  "reporters".* FROM "reporters" WHERE "reporters"."id" = ? LIMIT ?[0m  [["id", 97053031], ["LIMIT", 1]]
+  [1m[36mReporter Load (0.1ms)[0m  [1m[34mSELECT  "reporters".* FROM "reporters" WHERE "reporters"."id" = ? LIMIT ?[0m  [["id", 297101259], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------
+ReporterTest: test_reports_fields_are_not_empty
+-----------------------------------------------
+  [1m[36mReporter Load (0.1ms)[0m  [1m[34mSELECT  "reporters".* FROM "reporters" WHERE "reporters"."id" = ? LIMIT ?[0m  [["id", 157043852], ["LIMIT", 1]]
+  [1m[36mReporter Load (0.1ms)[0m  [1m[34mSELECT  "reporters".* FROM "reporters" WHERE "reporters"."id" = ? LIMIT ?[0m  [["id", 97053031], ["LIMIT", 1]]
+  [1m[36mReporter Load (0.1ms)[0m  [1m[34mSELECT  "reporters".* FROM "reporters" WHERE "reporters"."id" = ? LIMIT ?[0m  [["id", 297101259], ["LIMIT", 1]]
+  [1m[36mReporter Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "reporters" WHERE "reporters"."a_number" = ? AND "reporters"."id" != ? LIMIT ?[0m  [["a_number", 12345678], ["id", 157043852], ["LIMIT", 1]]
+  [1m[36mReporter Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "reporters" WHERE "reporters"."school_email" = ? AND "reporters"."id" != ? LIMIT ?[0m  [["school_email", "wenwenxie@hawk.iit.edu"], ["id", 157043852], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
