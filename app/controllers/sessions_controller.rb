@@ -7,5 +7,6 @@ class SessionsController < ApplicationController
       reporter.name = omni['info']['name']
       reporter.nickname = omni['info']['nickname']
       reporter.email = omni['info']['email']
+    end
   end
 end
