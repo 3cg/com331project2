@@ -263,3 +263,26 @@ Processing by SessionsController#create as HTML
 Completed 200 OK in 53ms (Views: 50.8ms | ActiveRecord: 0.0ms)
 
 
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/wxie/.rbenv/versions/2.6.2/bin/rake:23
+Migrating to AddAuthHashFieldsToReporters (20190409142740)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/wxie/.rbenv/versions/2.6.2/bin/rake:23
+  [1m[35m (8.9ms)[0m  [1m[35mALTER TABLE "reporters" ADD "uid" varchar DEFAULT ''[0m
+  ↳ db/migrate/20190409142740_add_auth_hash_fields_to_reporters.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "reporters" ADD "nickname" varchar DEFAULT ''[0m
+  ↳ db/migrate/20190409142740_add_auth_hash_fields_to_reporters.rb:4
+  [1m[35m (2.4ms)[0m  [1m[35mALTER TABLE "reporters" ADD "email" varchar DEFAULT ''[0m
+  ↳ db/migrate/20190409142740_add_auth_hash_fields_to_reporters.rb:5
+  [1m[36mActiveRecord::SchemaMigration Create (20.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190409142740"]]
+  ↳ /Users/wxie/.rbenv/versions/2.6.2/bin/rake:23
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/wxie/.rbenv/versions/2.6.2/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (5.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/wxie/.rbenv/versions/2.6.2/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/wxie/.rbenv/versions/2.6.2/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/wxie/.rbenv/versions/2.6.2/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/wxie/.rbenv/versions/2.6.2/bin/rake:23
