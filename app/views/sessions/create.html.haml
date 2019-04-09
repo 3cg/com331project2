@@ -1,3 +1,13 @@
-%h1 Let's Create a New Repoter (Eventually)
+%h1 Let's Create a New Reporter (Eventually)
 
-%pre= @provider_hash
+%h2 Reporter Info
+%ul
+  %li
+    %b First Name
+    = @reporter.first_name
+  %li
+    %b Email
+    = @reporter.email
+  %li
+    %b Username
+    = @reporter.nickname
