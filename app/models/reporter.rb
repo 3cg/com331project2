@@ -1,6 +1,8 @@
 class Reporter < ApplicationRecord
   has_many :complaints
 
+  validates :uid, uniqueness: true
+
   validates :first_name, :last_name, :a_number, :school_email, presence: true
 
   validates :a_number, uniqueness: true
