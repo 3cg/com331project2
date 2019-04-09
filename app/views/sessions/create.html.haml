@@ -1,10 +1,11 @@
 %h1 Let's Create a New Reporter (Eventually)
 
+%pre= @provider_hash
 %h2 Reporter Info
 %ul
   %li
-    %b First Name
-    = @reporter.first_name
+    %b Name
+    = @reporter.name
   %li
     %b Email
     = @reporter.email
