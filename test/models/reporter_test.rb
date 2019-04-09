@@ -13,6 +13,9 @@ class ReporterTest < ActiveSupport::TestCase
 
   test "reports fields are not empty" do
     reporter = Reporter.new
+    @Wenwen.uid = 1
+    @Wenwen.nickname = "wxie11"
+    @Wenwen.email = "wxie11@abc.com"
     assert @Wenwen.valid?
   end
 
