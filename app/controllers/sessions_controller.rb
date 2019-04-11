@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
       reporter.nickname = omni['info']['nickname']
       reporter.email = omni['info']['email']
     end
+      self.current_user = @reporter
   end
 
   def login
