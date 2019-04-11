@@ -8,5 +8,15 @@ class SessionsController < ApplicationController
       reporter.nickname = omni['info']['nickname']
       reporter.email = omni['info']['email']
     end
+      self.current_user = @reporter
+      redirect_to posts_url
   end
+
+  def login
+  end
+  def logout
+    reset_session
+    redirect_to login_url, notice: "You have been logged out."
+  end
+
 end
