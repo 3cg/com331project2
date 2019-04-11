@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_09_142740) do
+ActiveRecord::Schema.define(version: 2019_04_09_212411) do
 
   create_table "complaints", force: :cascade do |t|
     t.date "date"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2019_04_09_142740) do
     t.string "uid", default: ""
     t.string "nickname", default: ""
     t.string "email", default: ""
+    t.string "name", default: ""
   end
 
 end
