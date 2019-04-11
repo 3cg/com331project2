@@ -27,6 +27,7 @@ class ComplaintsController < ApplicationController
   # POST /complaints.json
   def create
     @complaint = Complaint.new(complaint_params)
+    @post.reporter = current_user
 
     respond_to do |format|
       if @complaint.save
@@ -72,6 +73,6 @@ class ComplaintsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def complaint_params
 
-      params.require(:complaint).permit(:date, :location, :department, :description, :person_number)
+      params.require(:complaint).permit(:date, :location, :department, :description)
     end
 end
