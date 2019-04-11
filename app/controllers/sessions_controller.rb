@@ -9,4 +9,10 @@ class SessionsController < ApplicationController
       reporter.email = omni['info']['email']
     end
   end
+
+  def login
+  end
+  def logout
+  end
+
 end
