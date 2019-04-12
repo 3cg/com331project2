@@ -8,6 +8,9 @@
   %p.byline= "Department: #{@complaint.department}"
   %p.byline= "Description: #{@complaint.description}"
 
+  %figure
+    = image_tag(@complaint.photo, {alt: 'photo'})
+
 %footer
   %ul.controls
     %li#back= link_to 'Back', complaints_path
