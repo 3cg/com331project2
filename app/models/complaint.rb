@@ -1,6 +1,8 @@
 class Complaint < ApplicationRecord
   belongs_to :reporter
 
+  has_one_attached :photo
+
   validates :date, :location, :department, :description, :reporter_id, presence: true
 
   validates :department, inclusion: { in: %w(Maintenance Technology),
