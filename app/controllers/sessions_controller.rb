@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       reporter.email = omni['info']['email']
     end
       self.current_user = @reporter
-      redirect_to complaints_url
+      redirect_to request.env['omniauth.origin'] || complaints_url
   end
 
   def login
