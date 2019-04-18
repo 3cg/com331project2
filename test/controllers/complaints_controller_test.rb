@@ -21,6 +21,7 @@ class ComplaintsControllerTest < ActionDispatch::IntegrationTest
       post complaints_url, params: { complaint: { date: @complaint.date, location: @complaint.location, department: @complaint.department, description: @complaint.description } }
     end
 
+    assert_equal(Complaint.last.reporter,reporters(:Wenwen))
     assert_redirected_to complaint_url(Complaint.last)
   end
 
