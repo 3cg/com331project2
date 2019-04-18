@@ -3,6 +3,7 @@ require 'test_helper'
 class ComplaintsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @complaint = complaints(:bathroom)
+    login_with('github')
   end
 
   test "should get index" do
