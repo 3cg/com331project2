@@ -18,6 +18,11 @@
     %li
       = f.label :department, "Department for complaint"
       = f.select :department, [' ', 'Maintenance', 'Technology']
+
+    %li
+      = f.label :photo
+      = f.file_field :photo
+
     %li
       = f.label :description, "Description"
       = f.text_area :description
