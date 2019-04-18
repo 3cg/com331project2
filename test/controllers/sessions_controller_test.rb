@@ -14,8 +14,8 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get create" do
-    get sessions_create_url
-    assert_response :success
+    post '/auth/github/callback', params: OmniAuth.config.mock_auth[:github]
+    assert_redirected_to complaints_url
   end
 
 end
