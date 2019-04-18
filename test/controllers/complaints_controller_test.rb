@@ -17,7 +17,7 @@ class ComplaintsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create complaint" do
     assert_difference('Complaint.count') do
-      post complaints_url, params: { complaint: { date: @complaint.date, location: @complaint.location, department: @complaint.department, description: @complaint.description, person_number: @complaint.reporter.a_number } }
+      post complaints_url, params: { complaint: { date: @complaint.date, location: @complaint.location, department: @complaint.department, description: @complaint.description } }
     end
 
     assert_redirected_to complaint_url(Complaint.last)
