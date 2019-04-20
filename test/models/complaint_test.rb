@@ -14,4 +14,13 @@ class ComplaintTest < ActiveSupport::TestCase
     assert @bathroom.valid?
   end
 
+  test "accepts a photo file attachment" do
+    @complaint = complaints(:bathroom)
+    file = Rails.root.join('test','fixtures','files','brokentableiit.jpg')
+    @complaint.photo.attach(io: File.open(file),filename: 'brokentableiit.jpg')
+    assert @complaint.save
+    assert @complaint.valid?
+    assert @complaint.photo.attached?
+  end
+
 end
