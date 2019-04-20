@@ -18,7 +18,7 @@ class ComplaintsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create complaint" do
     assert_difference('Complaint.count') do
-      post complaints_url, params: { complaint: { date: @complaint.date, location: @complaint.location, department: @complaint.department, description: @complaint.description } }
+      post complaints_url, params: { complaint: { date: @complaint.date, location: @complaint.location, department: @complaint.department, description: @complaint.description, photo: fixture_file_upload('files/brokentableiit.jpg')} }
     end
 
     assert_equal(Complaint.last.reporter,reporters(:Wenwen))
