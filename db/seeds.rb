@@ -13,24 +13,24 @@ Reporter.destroy_all
 #example seed data, but isn't complete!!
 
 @Wenwen = Reporter.create(
-  first_name: 'Wenwen',
-  last_name: 'Xie',
-  a_number: 12345678,
-  school_email: 'wenwenxie@hawk.iit.edu',
+  uid: 12345,
+  name: 'wenwen',
+  nickname: 'Wen Wen',
+  email: 'wxie@example.com',
 )
 
 @Jiayu = Reporter.create(
-  first_name: 'JiaYu',
-  last_name: 'Huang',
-  a_number: 21234567,
-  school_email: 'jiayuhuang@hawk.iit.edu',
+  uid: 67890,
+  name: 'jiayu',
+  nickname: 'Jia Yu',
+  email: 'jyu@example.com',
 )
 
 @Jessica = Reporter.create(
-  first_name: 'Jessica',
-  last_name: 'DeJesus',
-  a_number: 21234568,
-  school_email: 'jessicadejesus@hawk.iit.edu',
+  uid: 75345,
+  name: 'jessica',
+  nickname: 'Jessica De',
+  email: 'jde@example.com',
 )
 
 Complaint.create(
