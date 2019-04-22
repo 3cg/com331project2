@@ -7,9 +7,8 @@
   - @complaints.each do |complaint|
     %li
       %article
-        %h3= complaint.description
-        %ul.info
-          %ul= "Date: #{complaint.date}"
+        %p= complaint.description
+        %p= "Date: #{complaint.date}"
 
         %ul.controls#index
           %ul= link_to 'Details', complaint
