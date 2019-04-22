@@ -62,6 +62,15 @@ input {
   height: 15%;
 }
 
+article {
+  background-color: white;
+  padding: px-to-em(15px);
+}
+
+article h3 {
+  color: #191970;
+}
+
 
 select{
   background: white;
@@ -88,8 +97,6 @@ input {
   display: block;
 }
 
-
-
 form li {
   padding-bottom: px-to-em(16px,18px);
   line-height: px-to-em(24px,18px);
@@ -102,11 +109,10 @@ ul {
 }
 
 .complaints li {
-  padding-left: 1%;
   padding-top: 1%;
   line-height: px-to-em(24px,18px);
   background: white;
-  margin: px-to-em(5px);
+  margin-bottom: 5%;
   width: 100%;
 }
 
@@ -119,10 +125,6 @@ ul.info{
   margin: px-to-em(5px);
   width: 100%;
 
-}
-
-article {
-  padding: px-to-em(15px);
 }
 
 footer {
@@ -154,16 +156,16 @@ li#error {
    font-size: px-to-em(20px);
  }
 
- p {
+p {
    padding-top: 2%;
  }
 
 p.byline{
-  color: black;
+  color: #191970;
 }
 
 ul.controls {
-  padding-top: 2%;
+  padding-top: 5%;
 
 }
 
