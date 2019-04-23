@@ -24,8 +24,9 @@ html {
   color: $primary_color;
   line-height: px-to-em(20px);
   background-color: #DCDCDC;
-  font-family: "Arial Narrow", serif;
+  font-family: "Cormorant Garamond", serif;
 }
+
 
 body {
   padding: 5%
@@ -50,7 +51,6 @@ h3 {
 }
 
 input {
-
   display: block;
   border: none;
   line-height: 1;
@@ -59,13 +59,28 @@ input {
   background-color: white;
   width: 100%;
   box-sizing: border-box;
+  height: 15%;
 }
+
 
 select{
   background: white;
   box-sizing: border-box;
   line-height: px-to-em(24px,18px);
   padding: px-to-em(16px,18px);
+  width: 100%;
+  border: 0;
+}
+
+textarea{
+  width: 100%;
+  border: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0;
+  overflow: auto;
+  display: block;
 }
 
 label,
@@ -90,11 +105,9 @@ ul {
   padding-left: 1%;
   padding-top: 1%;
   line-height: px-to-em(24px,18px);
-  border-radius: px-to-em(10px);
   background: white;
   margin: px-to-em(5px);
   width: 100%;
-  box-sizing: border-box;
 }
 
 ul.info{
@@ -103,10 +116,9 @@ ul.info{
   padding-top: 1%;
   padding-bottom: 1%;
   line-height: px-to-em(24px,18px);
-  border-radius: px-to-em(10px);
   margin: px-to-em(5px);
   width: 100%;
-  box-sizing: border-box;
+
 }
 
 article {
@@ -116,8 +128,14 @@ article {
 footer {
   line-height: px-to-em(28px);
   text-align: right;
-  font-weight: bold;
-  background-color: #DCDCDC;
+  background-color: white;
+  margin-top: 3%;
+  margin-bottom: 0;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  position: absolute;
+  left: 0;
+  width: 100%;
 }
 
 li.actions, li#back, li#error{
@@ -126,7 +144,6 @@ li.actions, li#back, li#error{
 
 li#error {
   font-size: px-to-em(20px);
-  border-radius: 0.2em;
   padding: 0.2em 0.4em;
   list-style: square;
   list-style-position: inside;
@@ -145,8 +162,14 @@ p.byline{
   color: black;
 }
 
+ul.controls {
+  padding-top: 2%;
+
+}
+
 ul.controls#index{
   font-size: px-to-em(20px);
+  text-align: right;
 }
 
 /* Layout Styles (Usually Landmark ID Selectors) */
@@ -156,11 +179,12 @@ p a {
   padding: 0.2em 0.4em;
   color: #DCDCDC;
   background-color: #001f3f;
+  text-decoration: none;
 }
 .controls a:hover,
 p a:hover,
 input[type="submit"]:hover {
-  background-color: white;
+  background-color: #001f3f;
   color: purple;
 }
 
@@ -174,7 +198,7 @@ img {
 
 /* State Styles (JavaScript-Dependent Styles, Media Queries) */
 
-@media screen and (min-width: 360px) {
+@media screen and (min-width: 600px) {
   html {
     font-size: px-to-em(24px,16px); /* 24 / 16 = */
   }
@@ -186,7 +210,7 @@ img {
   }
 
 }
-@media screen and (min-width: 540px) {
+@media screen and (min-width: 990px) {
   html {
       font-size: px-to-em(26px,16px);
   }
@@ -194,7 +218,7 @@ img {
     padding: 3%
   }
 }
-@media screen and (min-width: 920px) {
+@media screen and (min-width: 1400px) {
   html {
       font-size: px-to-em(28px,16px);
   }

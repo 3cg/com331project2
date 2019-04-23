@@ -10,7 +10,7 @@
   - if @complaint.photo.attached?
     %figure
       = image_tag(@complaint.photo, {alt: 'photo'})
-
-%footer
   %ul.controls
     %li#back= link_to 'Back', complaints_path
+
+%footer
