@@ -10,6 +10,7 @@
     %li
       = f.label :date, "Date"
       = f.date_field :date
+
     %li
       = f.label :location, "Location"
       = f.select :location, [' ', 'Stuart', 'Keating', 'Kaplan', 'Pritzker', 'Engineering',
@@ -29,3 +30,6 @@
 
     %li.actions
       = f.submit 'Save'
+
+  %ul.controls
+    %li#back= link_to 'Back', complaints_path
