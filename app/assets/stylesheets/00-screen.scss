@@ -31,6 +31,7 @@ body {
 }
 
 h1 {
+  text-align: center;
   font-size: px-to-em(55px);
   line-height: px-to-em(40px,40.5px);
 }
@@ -191,6 +192,10 @@ footer {
   position: absolute;
   left: 0;
   width: 100%;
+}
+
+p.tagline{
+  text-align: center;
 }
 
 /* Modular Styles (Repeating Class Selectors) */
