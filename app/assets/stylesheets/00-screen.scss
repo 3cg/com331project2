@@ -27,25 +27,25 @@ html {
 }
 
 body {
-  padding: 5%
+  padding: 3%
 }
 
 h1 {
   text-align: center;
-  font-size: px-to-em(55px);
-  line-height: px-to-em(40px,40.5px);
+  font-size: px-to-em(40px);
+  line-height: px-to-em(40px,40px);
 }
 
 h2 {
-  font-size: px-to-em(36px);
-  line-height: px-to-em(30px,28px);
+  font-size: px-to-em(27px);
+  line-height: px-to-em(30px,27px);
   padding-top: px-to-em(16px,18px);
   padding-bottom: px-to-em(16px,18px);
 }
 
 h3 {
-  font-size: px-to-em(25px);
-  line-height: px-to-em(30px,25px);
+  font-size: px-to-em(18px);
+  line-height: px-to-em(30px,18px);
   color: white;
 }
 
