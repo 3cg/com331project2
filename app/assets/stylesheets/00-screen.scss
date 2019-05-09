@@ -99,6 +99,10 @@ form li {
   list-style: none;
 }
 
+ol {
+  padding: 5%;
+}
+
 ul {
   line-height: px-to-em(24px,18px);
   list-style: none;
@@ -136,8 +140,11 @@ li#error {
  }
 
 p {
-   padding-top: 5%;
+   padding-top: 3%;
  }
+header p {
+  padding-top: 5%;
+}
 
 p.byline{
   color: white;
