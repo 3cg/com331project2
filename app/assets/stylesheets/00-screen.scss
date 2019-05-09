@@ -99,6 +99,10 @@ form li {
   list-style: none;
 }
 
+ol {
+  padding: 3%;
+}
+
 ul {
   line-height: px-to-em(24px,18px);
   list-style: none;
@@ -136,8 +140,12 @@ li#error {
  }
 
 p {
-   padding-top: 2%;
+   padding-top: 3%;
  }
+
+header p {
+  padding-top: 3%;
+}
 
 p.byline{
   color: white;
@@ -179,6 +187,7 @@ input[type="submit"]:hover {
 img {
   display: block;
   max-width: 100%;
+  padding: 3%;
 }
 
 footer {
@@ -196,6 +205,7 @@ footer {
 
 p.tagline{
   text-align: center;
+  font-style: italic;
 }
 
 /* Modular Styles (Repeating Class Selectors) */
