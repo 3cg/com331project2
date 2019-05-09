@@ -2,10 +2,12 @@
 
 %h2= "Details of Complaint"
 %article
-  %p.byline= "Date of incident: #{@complaint.date}"
-  %p.byline= "Location: #{@complaint.location}"
-  %p.byline= "Department: #{@complaint.department}"
-  %p.byline= "Description: #{@complaint.description}"
+
+  %ol.byline= "Date of incident: #{@complaint.date}"
+  %ol.byline= "Location: #{@complaint.location}"
+  %ol.byline= "Department: #{@complaint.department}"
+  %ol.byline= "Description: #{@complaint.description}"
+
 
   - if @complaint.photo.attached?
     %figure
